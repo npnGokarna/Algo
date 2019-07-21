@@ -9,7 +9,10 @@ function longestSubString(str) {
     let strObj = {}, maxLen = 0, i=0, j=0;
     while(j < str.length) {
         if (strObj.hasOwnProperty(str[j])) {
-            i=(strObj[str[j]] < i) ? i : strObj[str[j]]+1;
+            // if current index of repeating character is greater than the index it appears in
+            // the string, do not change current index, else shift current index to one character after
+            // the repeating character.
+            i = Math.max(i, strObj[str[j]]+1);
         }
         maxLen = Math.max(maxLen, j-i+1);
         strObj[str[j]] = j;
@@ -19,11 +22,11 @@ function longestSubString(str) {
     return maxLen;
 }
 
-console.log(longestSubString('thisisawesome'));
-console.log(longestSubString('bbbbbbbbbbbbb'));
-console.log(longestSubString('rithmschool'));
-console.log(longestSubString('abcdef'));
-console.log(longestSubString('thecatinthehat'));
-console.log(longestSubString(''));
-console.log(longestSubString('longestsubstring'));
-console.log(longestSubString('thisishowwedoit'));
+console.log(longestSubString('thisisawesome')); // 6
+console.log(longestSubString('bbbbbbbbbbbbb')); // 1
+console.log(longestSubString('rithmschool')); // 7
+console.log(longestSubString('abcdef')); // 6
+console.log(longestSubString('thecatinthehat')); // 7
+console.log(longestSubString('')); // 0
+console.log(longestSubString('longestsubstring')); // 8
+console.log(longestSubString('thisishowwedoit')); // 6
