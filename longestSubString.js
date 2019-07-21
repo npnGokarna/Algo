@@ -9,12 +9,10 @@ function longestSubString(str) {
     let strObj = {}, maxLen = 0, i=0, j=0;
     while(j < str.length) {
         if (strObj.hasOwnProperty(str[j])) {
-            maxLen = Math.max(maxLen, j-i);
             i=(strObj[str[j]] < i) ? i : strObj[str[j]]+1;
-            strObj[str[j]] = j;
-        } else {
-            strObj[str[j]] = j;
         }
+        maxLen = Math.max(maxLen, j-i+1);
+        strObj[str[j]] = j;
         j++;
     }
     maxLen = Math.max(maxLen, j-i);
