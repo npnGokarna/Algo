@@ -9,8 +9,8 @@ function countUniqueValues(arr) {
         if(arr[i] === arr[j]) {
             ++j;
         } else {
-            arr.splice(i+1, 0, arr[j]);
             ++i;
+            arr[i] = arr[j];
             ++j;
         }
     }
