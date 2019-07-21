@@ -1,4 +1,6 @@
 // find max sum of 'n' consecutive numbers in an array
+// Given an array of integers and a number, write a function called maxSubArraySum,
+// which finds the maximum sum of a subarray with the length of the number passed to the function. 
 
 function maxSubArraySum(arr, n) {
     if (!arr.length || n>arr.length) {
