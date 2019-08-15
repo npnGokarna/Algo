@@ -10,13 +10,12 @@ const getYearsWithHighestPopulation = (people) => {
   // if there is single interval then return all the years in that interval
   if(people.length === 1) {
     return getYears(people[0]);
-  }  
+  }
   let obj = {}, currIndex = 0;
   obj[currIndex] = {};
   obj[currIndex].birthYear = people[0][0];
   obj[currIndex].deathYear = people[0][1];
   obj[currIndex].count = 1;
-  
 
   //loop through all intervals and check against existing intervals if they allign,
   // if yes then increase the count of people for that interval
@@ -68,7 +67,7 @@ const getYearsWithHighestPopulation = (people) => {
 
 function isBetween(obj, arr) {
     for(let item in obj) {
-        if (obj[item].deathYear >= arr[0]) {
+        if (obj[item].deathYear >= arr[0] && obj[item].birthYear <= arr[1]) {
             return item;
         }
     }
